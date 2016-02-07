@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LED Control on ESP8266 using AJAX</title>
+        
+        <script>
+
+
+function ToggleLed(){
+    document.getElementById("Status_Text").innerHTML = "Processing Button Click";
+    server = "toggle";
+    request = new XMLHttpRequest();
+    request.onreadystatechange = LedStatus;
+    request.open("GET", "/toggle", true);
+    request.send(null);
+}
+
+function LedStatus(){
+    if ((request.readyState == 4) && (request.status == 200))
+    {
+        result = request.responseText;
+        document.getElementById("Status_Text").innerHTML = result;
+    }
+}
+
+
+</script>
+    </head>
+
+    <body>
+        <p>Control the LED (GPIO2) on the ESP12-E</p>
+        <button onclick="ToggleLed()"/>Toggle LED</button>
+        <p id="Status_Text">Off</p>
+    </body>
+</html> 

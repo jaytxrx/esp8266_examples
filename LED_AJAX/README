@@ -1,0 +1,28 @@
+LED control using AJAX
+----------------------
+
+Control the default LED(on GPIO2) on the ESP12E using webpage.
+
+With AJAX the page is dynamic i.e each time you press the Toggle button on the webpage,
+the page is not loaded. Only the info to toggle the LED is sent to ESP12E and the ESP12E reponds
+with the current status(On/Off) of the LED.This is much memory effiective otherwise, the whole 
+webpage needs to be loaded which need more time.
+
+Steps to use this example
+-------------------------
+
+1) Upload the LED_AJAX.ino file and also the contents of the data folder to 
+the flash using Tools -> ESP8266 Sketch Data Upload
+
+2) Connect to the WiFi network "LED Control"
+
+3) On your browser(on laptop or phone) open any domain name(example: test.mn). This should open the webpage.
+Press the toggle button to toggle the LED.
+
+
+Reference projects
+------------------
+http://babaawesam.com/2015/11/26/control-input-output-of-esp8266-with-ajax/
+https://github.com/esp8266/Arduino/blob/master/libraries/DNSServer/examples/CaptivePortal/CaptivePortal.ino
+https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WebServer/examples/FSBrowser/FSBrowser.ino
+https://github.com/scanlime/esp8266-arm-swd/blob/master/esp8266-arm-swd.ino

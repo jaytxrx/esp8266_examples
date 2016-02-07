@@ -1,0 +1,42 @@
+FileSystemWebServer
+-------------------
+
+Simple Web Server serving files from the Flash chip using SPIIFS.
+
+"data" folder contains the files which the webserver has to server. Currently only index.html is present.
+But you may add your won files. The files in the data folder are stored inside the flash chip of the ESP12E with support of SPIFFS.
+The biggest advantage is that you can easily add your html files to data folder and upload them. But this method is little slow.
+Other way is to make this into an C header file. But this is time consuming since you need to map them to a variable name,
+convert " using escape charater to \" etc. This is also time consuming. Adding a new html, javascript, css file etc are easy when
+you have an data folder. You just need to paste them and upload uisng the option in Arduino Tools -> ESP8266 Sketch Data Upload
+
+WIFI-DETAILS
+
+Steps to get the example running
+--------------------------------
+1) Edit the WIFI-DETAILS.ino file and add your home router name and password instead of WIFI_NAME and WIFI_PASSWORD
+
+2) Upload using Arduino the file - FileSystemWebServer.ino
+After this we need to upload the contents in "data" folder to ESP12E.
+For this, click Tools -> ESP8266 Sketch Data Upload
+If you don't have this option, make sure you have followed the steps mentioned in below link
+https://github.com/esp8266/Arduino#using-git-version-
+
+3) After both operations are done, do a power ON/OFF so that our new software starts running.
+If you are viewing the serial port, you can get lots of info about what ESP12E is doing.
+For viewing the contents of serial port, you may use the Arduino Serial Monitor with baudrate of 115200
+or you may use the screen software or any other tools
+screen /dev/ttyUSB0 115200
+
+4) If all things are fine, you can see the blue LED on the ESP12E is On.
+
+5) Visit esp8266.local on your browser
+Note: I have noticed that accessing esp8266.local on Adroid phones doesn't work since mDNS used in this project is not 
+supported by Android. Only way to access this webpage on Android phone is to provide the complete ip address. Ip address
+can be obtained from the serial log or by logging into your router and finding the list of devices connected to your router.
+
+I have heard that you can access this link on iPhones. 
+
+But esp8266.local works perfectly on my laptop using Mozilla Firefox browser. On Chrome its not working
+
+If you want to change the name domain name, edit "host" in WIFI-DETAILS.ino file. I am not sure if you can change the ".local"
