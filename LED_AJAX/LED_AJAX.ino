@@ -1,5 +1,5 @@
 /*
- * Simple Web Server serving files from the Flash chip using SPIFFS
+ * Simple Web Server serving a webpage to toggle the LED on ESP12E
  * 
  * Copyright (c) 2016 Jeffrey Antony
  * 
